@@ -1,42 +1,42 @@
-📌 Description
+# DS AI Internship Project
 
-This is a basic Python program that prints "Hello, World!" to the console.
-It is commonly used as the first step in learning any programming language.
+A simple Python project demonstrating basic program structure.
 
-🐍 Requirements
+## Overview
 
-Python 3.x installed on your system
+This project contains a basic Python script that serves as a starting point for the Data Science & AI Internship program.
 
-▶️ How to Run
+## Project Structure
 
-Clone or download this repository.
+```
+DS_AI_Internship/
+└── src/
+    └── Hello.py
+```
 
-Open a terminal or command prompt.
+## Getting Started
 
-Navigate to the project directory.
+### Prerequisites
 
-Run the following command:
+- Python 3.x
 
-python hello.py
+### Running the Project
 
-📄 Code Example
-print("Hello, World!")
+Navigate to the project directory and run:
 
-✅ Output
-Hello, World!
+```bash
+python src/Hello.py
+```
 
-🎯 Purpose
+This will output:
+```
+Hello World
+```
 
-Understand basic Python syntax
+## Files
 
-Learn how to run a Python script
+- **src/Hello.py** - Main Python script that prints "Hello World"
 
-Verify Python installation
+## License
 
-📚 Author
-
-Shifali K Salian
-
-🏁 License
-
-This project is open-source and free to use for learning purposes.
+This project is part of the DS AI Internship program.

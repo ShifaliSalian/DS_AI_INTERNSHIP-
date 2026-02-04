@@ -1,0 +1,73 @@
+
+age=21
+print(age)
+height=5.8
+print(height)
+name="Alice"
+print(name)
+is_student=True
+print(is_student)
+
+
+
+a= int(input("Enter number: "))
+print("Number is:", a)
+
+a=int(input("Enter first number: "))
+b=int(input("Enter second number: "))
+
+op=input("Enter operation (+, -, *, /, %, **): ")
+
+if op=='+':
+    result=a+b
+    print("The sum is",result)
+elif op=='-':
+    result=a-b
+    print("The difference is",result)
+elif op=='*':
+    result=a*b
+    print("The product is",result)
+elif op=='/':
+    result=a/b
+    print("The quotient is",result)
+elif op=='%':
+    result=a%b
+    print("The remainder is",result)
+elif op=='**':
+    result=a**b
+    print("The  exponential is",result)
+else:
+    print("Invalid operation")
+
+name=input("Enter your name: ")
+print("Hello", name+"!")
+fstring=f"Welcome to Python programming, {name}!"
+print(fstring)
+
+#Task 1
+name = input("Enter your name: ")
+age = int(input("Enter your current age: "))
+age_2030 = age + 4
+print(f"Hey {name}, you will be {age_2030} years old in 2030!")
+
+
+#Task 2
+total_bill = float(input("Enter the total bill amount: "))
+people = int(input("Enter the number of people: "))
+
+share_per_person = total_bill / people
+
+print(f"Total Bill: {total_bill}. Each person pays: {share_per_person}")
+
+print(type(total_bill))
+print(type(people))
+print(type(share_per_person))
+
+
+#Take 3
+item_name=str(input("enter the item name:"))
+item_price=int(input("enter the item price:"))
+item_qut=int(input("enter the Qty:"))
+price=item_price*item_qut
+in_stock=True
+print(f"Item:{item_name}, Price:{item_price}, Qty:{item_qut},Total Price:{price},Available:{in_stock}")

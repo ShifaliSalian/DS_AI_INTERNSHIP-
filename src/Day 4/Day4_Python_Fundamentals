@@ -1,0 +1,94 @@
+# Dictionary
+student = {"name":"Shifali","age":22,"course":"Engineering"}
+print(student["name"])
+student["age"]=23
+student["city"]="Delhi"
+print(student)
+
+marks={"Maths":90,"Science":85,"English":88}
+print(marks.get("Maths"))
+print(marks.get("History",0))
+for subject, score in marks.items():
+    print(subject, score)
+marks.update({"History":80})
+print(marks)
+marks.pop("English")
+print(marks)
+
+purchase={"Alice":250,"Bob":400,"Charlie":150}
+for name, amount in purchase.items():
+    print(f"{name} spent ₹ {amount}.")
+
+print("Purchase Amounts:", purchase.values())
+print("Customers:", purchase.keys())
+
+Input dictionary data from user
+n=int(input("Enter number of customers: "))
+user_pruchase={}
+for i in range(n):
+    name=input("Enter customer name: ")
+    amount=int(input(f"Enter purchase amount for {name}: "))
+    user_pruchase[name]=amount
+print("Customer Purchases:", user_pruchase)
+top_customer=max(user_pruchase, key=user_pruchase.get)
+print("Top Spending Customer:", top_customer)
+
+least_customer=min(user_pruchase, key=user_pruchase.get)
+print("Least Spending Customer:", least_customer)
+
+top_value=max(user_pruchase.values())
+print("Top Spending Amount:", top_value)
+
+least_value=min(user_pruchase.values())
+print("Least Spending Amount:", least_value)
+
+Set
+num={1,2,3,3,4}
+print(num)
+num.add(5)
+print(num)
+
+A={1,2,3}
+B={3,4,5}
+print(A|B)
+print(A&B)
+print(3 in A)
+
+# Task 1
+contacts={"Sush":9384653672,
+          "Pana":9373545373,
+          "Acchu":7633322832,
+          "Dish":8656253435}
+print("Contacts:", contacts)
+contacts["Ship"]="9474335232"
+print(contacts)
+contacts.update({"Pana":8975467434})
+print("Contact updated successfully")
+existing_contact=contacts.get("Acchu","Contact not found")
+nonexist_contact=contacts.get("Ship","Contact not found")
+print("Safe lookups:")
+print("Acchu's contact:",existing_contact)
+print("Ship's contact:",nonexist_contact)  
+
+print("All contacts:")
+for name, number in contacts.items():
+    print(f"Contact: {name} | Phone Number: {number}")
+
+# Task 2
+raw_logs=["ID01","ID02","ID01","ID05","ID02","ID08","ID01"]
+unique_users=set(raw_logs)
+print("Unique users are:",unique_users)
+print("Is ID05 in the logs?", "ID05" in unique_users)
+print("Length of original list:", len(raw_logs))
+print("Length of the unique set:", len(unique_users))
+
+# Task 3
+friend_a = {"Python", "Cooking", "Hiking", "Movies"}
+friend_b = {"Hiking", "Gaming", "Photography", "Python"}
+
+Common_interests=friend_a & friend_b
+All_interests=friend_a | friend_b
+Unique_interests_a=friend_a - friend_b
+print("Common interests:", Common_interests)
+print("All interests:", All_interests)
+print("Unique interests in friend_a:", Unique_interests_a)

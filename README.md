@@ -9,7 +9,7 @@ It covers Python basics, data structures, functions, modules, and hands-on assig
 
 ## 📁 Project Structure
 
-```
+````
 
 src/
 │
@@ -33,7 +33,7 @@ src/
 ├── math_operations.py
 └── utils.py
 
-```
+````
 
 ---
 

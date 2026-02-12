@@ -1,66 +1,65 @@
-# Pandas Series
+# STEP 1 — Import pandas
 import pandas as pd
 
-s1 = pd.Series([10, 20, 30, 40])
-s2 = pd.Series([10, 20, 30], index=['a', 'b', 'c'])
-print(s1)
-print(s2)
+# STEP 2 — Create messy dataset 
+data = {
+    "CustomerID": [101,102,103,104,105,106,107,107,108,109],
+    "Name": ["Amit","Sara","John",None,"Priya","David","Meena","Meena","Ali","Riya"],
+    "Age": [25,None,30,22,None,28,35,35,None,26],
+    "City": [" Bangalore","Mumbai ","Delhi",None,"Bangalore","Chennai","Mumbai","Mumbai","Delhi"," Bangalore "],
+    "OrderAmount": [2500,1800,None,2200,3000,None,1500,1500,2700,None],
+    "PaymentMethod": ["UPI","Card","Cash","Card",None,"UPI","Cash","Cash","Card","UPI"],
+    "Date": ["2024-01-05","2024-01-10","2024-02-01","2024-02-05","2024-03-01",
+             "2024-03-05","2024-03-10","2024-03-10","2024-04-01","2024-04-05"]
+}
 
-# Marks in different subjects
-marks = pd.Series([85, 90, 78], index=['Math', 'Physics', 'Chemistry'])
-print(marks['Math'])
-print(marks[['Math', 'Chemistry']])
+df = pd.DataFrame(data)
 
-# Boolean masking
-scores = pd.Series([45, 67, 89, 34, 90])
-passed = scores[scores > 60]
-print(passed)
+# STEP 3 — Inspect dataset
+print("First rows:\n", df.head())
+print("\nDataset info:")
+print(df.info())
 
-#Handling missing data
-data = pd.Series([10, None, 30, None])
-print(data.isnull())
-print(data.fillna(0))
+# STEP 4 — Check missing values
+print("\nMissing values per column:")
+print(df.isna().sum())
 
-# Vecrorized string operations
-names = pd.Series(['Alice', 'bob', 'CHARLIE'])
-print(names.str.lower())
-print(names.str.contains('a'))
-print(names.str.startswith('A'))
+# STEP 5 — Fill missing values (statistical approach)
+df["Age"] = df["Age"].fillna(df["Age"].mean())
+df["OrderAmount"] = df["OrderAmount"].fillna(df["OrderAmount"].mean())
+df["City"] = df["City"].fillna(df["City"].mode()[0])
+df["PaymentMethod"] = df["PaymentMethod"].fillna(df["PaymentMethod"].mode()[0])
+df["Name"] = df["Name"].fillna("Unknown")
 
-# Task 1
-import pandas as pd
-products = pd.Series([700, 150, 300], index=["Laptop", "Mouse", "Keyboard"])
-laptop_price = products["Laptop"]
-first_two = products.iloc[0:2]
-print("Full Series:")
-print(products)
-print("\nPrice of Laptop:")
-print(laptop_price)
-print("\nFirst two products:")
-print(first_two)
+# STEP 6 — Check data types before conversion
+print("\nData types BEFORE conversion:")
+print(df.dtypes)
 
-# Task 2
-import pandas as pd
-grades = pd.Series([85, None, 92, 45, None, 78, 55])
-print("Original Grades:")
-print(grades)
-print("\nMissing Values (True means missing):")
-print(grades.isnull())
-filled_grades = grades.fillna(0)
-print("\nGrades After Filling Missing Values:")
-print(filled_grades)
-filtered_grades = filled_grades[filled_grades > 60]
-print("\nScores Greater Than 60:")
-print(filtered_grades)
+# STEP 7 — Convert data types
+df["Age"] = df["Age"].astype(int)
+df["Date"] = pd.to_datetime(df["Date"])
 
-# Task 3
-import pandas as pd
-usernames = pd.Series([' Alice ', 'bOB', ' Charlie_Data ', 'daisy'])
-print("Original Usernames:")
-print(usernames)
-cleaned_usernames = usernames.str.strip().str.lower()
-print("\nCleaned Usernames:")
-print(cleaned_usernames)
-contains_a = cleaned_usernames.str.contains('a')
-print("\nNames Containing 'a':")
-print(contains_a)
+print("\nData types AFTER conversion:")
+print(df.dtypes)
+
+# Strip extra spaces from City names
+df["City"] = df["City"].str.strip()
+
+# Convert City names to lowercase
+df["City"] = df["City"].str.lower()
+
+print("\nCity column after cleaning:")
+print(df["City"])
+
+# Check duplicate rows
+print("\nNumber of duplicate rows:")
+print(df.duplicated().sum())
+
+# Remove duplicates
+df = df.drop_duplicates()
+
+print("\nShape after removing duplicates:", df.shape)
+
+# FINAL CLEAN DATASET
+print("\nFinal cleaned dataset:")
+print(df.head())
